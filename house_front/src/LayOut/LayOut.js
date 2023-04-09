@@ -7,7 +7,7 @@ const LayOut = () => {
         <>
         <Header/>
         <AppRouter/>
-        <Footer/>
+        {/* <Footer/> */}
         </>
     )
 }
