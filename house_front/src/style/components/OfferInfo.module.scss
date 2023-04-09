@@ -1,0 +1,166 @@
+@mixin font{
+    font-family: Helvetica,Verdana,Arial,sans-serif;
+    color: #444;
+    font-weight: 100;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.images{
+    display: inline-block;
+    padding-top: 40px;
+    width: 900px;
+    height: 500px;
+    margin: 0 auto;
+}
+.container_info{
+    margin: 0 auto;
+    display: flex;
+    gap: 70px;
+    flex-direction: column;
+}
+.info{
+    margin: 0 auto;
+    display: flex;
+    gap: 70px;
+}
+.name{
+    font-size: 34px;
+    text-transform: uppercase;
+    margin-top: 48px;
+    margin: 0 auto;
+    max-width: 780px;
+    font-weight: 100;
+    text-align: center;
+    @include font;
+}
+.reason_with_location{
+    @include font;
+    font-size: 16px;
+    margin: 0 auto;
+    text-align: center;
+}
+.living_area_square{
+    @include font;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &_icon{
+       background: url('https://www.engelvoelkers.com/webinnovation-frontend-resources/images/Icon_LivingSpace.svg') 0 no-repeat; 
+       width: 40px;
+       height: 40px;
+       margin: 0 auto;
+    }
+    &_text{
+        font-size: 24px;
+        font-weight: 100;
+    }
+}
+.price{
+    @include font;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &_icon{
+        background: url('https://www.engelvoelkers.com/webinnovation-frontend-resources/images/Icon_Price.svg') 0 no-repeat;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+    }
+    &_text{
+        font-size: 24px;
+        font-weight: 100;
+    }
+}
+.code{
+    @include font;
+    font-size: 16px;
+    margin: 0 auto;
+}
+.line_border{
+    width: 250px;
+    height: 1px;
+    background-color: red;
+    margin: 0 auto;
+}
+.email{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    &_text{
+        @include font;
+        font-size: 34px;
+        margin: 0 auto;
+    }
+    &_button{
+        @include font;
+        color: white;
+        width: 160px;
+        height: 48px;
+        line-height: 48px;
+        margin: 0 auto;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+        background-color: #eb0a0a;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        z-index: 0;
+    }
+}
+.link{
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+}
+.shoud_to_know{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    &_h{
+        @include font;
+        font-size: 34px;
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: center;
+        line-height: 40px;
+    }
+    &_text{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        @include font;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    &_h{
+        @include font;
+        font-size: 34px;
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: center;
+        line-height: 40px;
+    }
+    &_text{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        @include font;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 25px;
+    }
+}
