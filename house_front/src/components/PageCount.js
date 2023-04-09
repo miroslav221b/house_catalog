@@ -29,24 +29,24 @@ const PageCount = (props) => {
            {pages.map((item)=>{
             if(item == activePage){
                 return( 
-                    <span className={style.activePage} key={item}> 
-                        {item}  
-                    </span>
+                    <div className={style.activePage} key={item}>
+                        <div className={style.activePage_value}>{item}</div>
+                    </div>
                     )
             }else if(typeof(item) === "string"){
                 return( 
-                    <span>
-                        ...
-                    </span>
+                    <div className={style.dots}>
+                        <div className={style.dots_text}>...</div>
+                    </div>
                     )
             }else{
                 return( 
-                    <span className={style.nonActivePage}
+                    <div className={style.nonActivePage}
                         onClick={()=>{  dispatch(setActivePage(item)) 
                                         dispatch(setFilters({...filters,page:item}))}}
                         key={item}> 
                             {item}
-                    </span>
+                    </div>
                     )
             }})}
         </div>
