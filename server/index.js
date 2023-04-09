@@ -105,14 +105,32 @@ app.put("/", async(req,res)=>{
         res.status(500).json("some error")
     }
 })
-app.get("/:id", async(req,res)=>{
+app.get("/getOfferById/:id", async(req,res)=>{
     try{
-        const offer = await testModel.findOne({_id:req.params.id})
+        const offer = await testModel.findById(req.params.id)
         res.status(200).json(offer)
     }catch(err){
         console.log(err)
         res.status(500).json("some error")
     }
 })
+app.get("/helperInfo", async(req,res)=>{
+    try{
+        const topPrice = await testModel.find().sort({"price": -1}).limit(1)
+        const lowPrice = await testModel.find().sort({"price": 1}).limit(1)
+        const topLiving_area_square = await testModel.find().sort({"living_area_square": -1}).limit(1)
+        const lowLiving_area_square = await testModel.find().sort({"living_area_square": 1}).limit(1)
 
-app.listen(8000,()=>{console.log("server is ok")})    
+        const helperInfo = {
+            topPrice:topPrice[0].price,
+            lowPrice:lowPrice[0].price,
+            topLiving_area_square:topLiving_area_square[0].living_area_square,
+            lowLiving_area_square:lowLiving_area_square[0].living_area_square
+        } 
+        res.status(200).json(helperInfo)
+    }catch(err){
+        console.log(err)
+        res.status(500).json("some error")
+    }
+})
+app.listen(process.env.PORT,()=>{console.log("server is ok")})     

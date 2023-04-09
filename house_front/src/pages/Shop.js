@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import OfferList from "../components/offerList";
 import PageCount from "../components/PageCount";
-import { getOffersThunk } from "../store/slices/shopSlice";
+import { getHelperInfoThunk, getOffersThunk } from "../store/slices/shopSlice";
 import style from "../style/pages/Shop.module.scss"
 import Loader from "../UI/loader/Loader";
 import Filters from "../components/Filters";
@@ -16,7 +16,6 @@ const Shop = () => {
     useEffect(()=>{
         dispatch(getOffersThunk(shop.filters))
     },[shop.filters])
-
     return(
         <div className={style.container}>
             <Filters/>

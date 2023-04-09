@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import {BASE_URL} from "../../utils/consts"
 import axios from "axios";
 export const getOffersThunk = createAsyncThunk("shop/getOffers",async(filters,thunkApi)=>{
-
+    console.log(filters)
     try{
         const res = await axios({
             method:"put",
@@ -19,9 +19,17 @@ export const getOffersThunk = createAsyncThunk("shop/getOffers",async(filters,th
     }
 })
 export const getOfferThunk = createAsyncThunk("shop/getOffer",async(offerId,thunkApi)=>{
-
     try{
-        const res = await axios(`${BASE_URL}/${offerId}`)
+        const res = await axios(`${BASE_URL}/getOfferById/${offerId}`)
+        return res.data
+    }catch(err){
+        console.log(err)
+        return thunkApi
+    }
+})
+export const getHelperInfoThunk = createAsyncThunk("shop/getHelperInfo",async(_,thunkApi)=>{
+    try{
+        const res = await axios(`${BASE_URL}/helperInfo`)
         return res.data
     }catch(err){
         console.log(err)
@@ -40,9 +48,10 @@ const shopSlice = createSlice({
         offerList:[],
         activeOffer:null,
 
-        isShopLoading:false,
+        isShopLoading:true,
         isOfferLoading:true,
-        
+        isHelperInfoLoading:true,
+
         activePage:1,
 
         helperInfo:{
@@ -77,8 +86,15 @@ const shopSlice = createSlice({
             state.activeOffer = action.payload
             state.isOfferLoading = false
         })
+        builder.addCase(getHelperInfoThunk.pending,(state,action)=>{
+            state.isHelperInfoLoading = true
+        })
+        builder.addCase(getHelperInfoThunk.fulfilled,(state,action)=>{
+            state.helperInfo = {...state.helperInfo , ...action.payload}
+            state.isHelperInfoLoading = false
+        })
     }
 })
-export const { setFilters , setActivePage} = shopSlice.actions
+export const { setFilters , setActivePage } = shopSlice.actions
 
 export default shopSlice.reducer
