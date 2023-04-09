@@ -1,23 +1,39 @@
 import React from "react";
 import style from "./slider.module.scss"
-const Slider = (props) => {
-    let minus = 100
-    let imagesContainerStyle = {
-        left:"-" +  minus  + "px"
-    }
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination, A11y } from 'swiper';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+const Slider = ({images}) => {
     return(
-        <div className={style.container}>
-          <button onClick={()=>{
-            imagesContainerStyle.left = "-" +  minus + 300  + "px"
-          }}>{">"}</button>
-            <div className={style.imagesContainer} style={imagesContainerStyle} >
-                {props.images.map((item)=>{
-                   return <img src={item} key={item}/>
-                })}
-            </div>
-           
-        </div>
+        <Swiper
+            modules={[Navigation, Pagination, A11y ]}
+            className={style.swiper}
+            centeredSlides
+            loop
+            spaceBetween={0}
+            slidesPerView={1}
+            navigation
+            speed={1000}
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log('slide change')}
+      >
+        {
+            images.map((item)=>{
+                return(
+                    <SwiperSlide>
+                        <div className={style.slide}>
+                            <img src={item}/>
+                        </div>
+                    </SwiperSlide>
+                )
+            })
+        }
+      </Swiper>
     )
 }
 export default Slider

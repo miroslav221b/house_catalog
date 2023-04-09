@@ -114,7 +114,9 @@ const OfferInfo = (props) => {
     }
     return(
            <div className={style.container}>
-                    <img className={style.images} src={offerInfo.images[0]}></img>
+                    <div className={style.images}>
+                        <Slider images={offerInfo.images}/>
+                    </div>
                     <div className={style.name}>{offerInfo.name}</div>
                     <div className={style.reason_with_location}>
                         {offerInfo.type}, {offerInfo.buy_or_rent} | {offerInfo.location}
