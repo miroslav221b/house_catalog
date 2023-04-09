@@ -120,7 +120,6 @@ const OfferInfo = (props) => {
                         {offerInfo.type}, {offerInfo.buy_or_rent} | {offerInfo.location}
                     </div>
                     {componentInfo}
-                    <a className={style.link} href={offerInfo.link}>fkdslk</a>
             </div>
     )
 }
