@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../style/components/Filters.module.scss"
+import style from "../style/components/Filter.module.scss"
 import { useDispatch, useSelector } from "react-redux";
 import { setActivePage, setFilters } from "../store/slices/shopSlice";
 const Filter = ({filterSeting,optionList,secFilterSeting,name}) => {

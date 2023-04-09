@@ -1,0 +1,53 @@
+.filter{
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    cursor: pointer;
+    .filter_btn{
+        transition: 200ms;
+        color:#575757;
+        padding-right: 30px;
+        position: relative;
+        &::after{
+            transition: 200ms;
+            position: absolute;
+            content:''; 
+            top: -5px;
+            right: 0px;
+            background: url("../../static/icons/arrow_grey.svg");
+            height: 25px;
+            width:25px;
+        }
+    }
+    .filter_btn_active{
+        &::after{
+            background: url("../../static/icons/arrow_red.svg");
+            transform: rotate(180deg);
+        }
+    }
+    .filter_content{
+        box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+        position: absolute;
+        top: 20px;
+        background: white;
+        width: max-content;
+        z-index: 1;
+        transition: 200ms;
+        transform: scale(0);
+        opacity: 0;
+        .filter_item{
+            line-height: 40px;
+            padding: 0 16px;
+            color: #444;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            &:hover{
+                background-color: #ededed;
+            }
+        }
+    }
+    .filter_content_active{
+        transform: scale(1);
+        opacity: 1;
+    }
+}

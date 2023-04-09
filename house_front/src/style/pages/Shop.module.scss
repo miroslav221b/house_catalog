@@ -1,45 +1,11 @@
 $frameSize: 1000px;
-
 .container{
-
-    .filterContainer{
-        width: 100%;
-
-        border-bottom:  1px solid #c6c6c6;
-        .filters{
-            width: $frameSize;
-            margin: 0px auto;
-            height: 50px;
-    
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-    
-        }
-    }
-    .SearchInfo{
-        width:$frameSize ;
-        margin: 0px auto;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .sortBlock{
-            width: fit-content;
-        }
-        h1{
-            font-family: Helvetica,Verdana,Arial,sans-serif;
-            font-weight: 100;
-            font-size: large;
-        }
-    }
-   
     .offerList{
         width: $frameSize;
         margin: 20px auto;
     }
     .PageCount{
-        margin: 10px auto;
+        margin: 20px auto;
         width: $frameSize;
         padding-bottom:50px ;
     }
