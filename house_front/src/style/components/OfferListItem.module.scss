@@ -1,0 +1,62 @@
+.list_item{
+    font-family: Helvetica,Verdana,Arial,sans-serif;
+    font-weight: 100;
+    color: #444;
+    display: grid;
+    grid-template-rows: 200px 40px 40px 1px 40px 40px;
+    height: 360px;
+    width: 310px;
+    border: 1px solid #c6c6c6;
+    &_image{
+        grid-row: 1/2;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        position: relative;
+    }
+    &_name{
+        grid-row: 2/3;
+        font-size: 15px;
+        padding: 10px 10px 0px 10px;
+    }
+    &_location{
+        grid-row: 3/4;
+        padding: 10px 10px 0px 10px;
+        font-size: 10px;
+        height: 40px;
+    }
+    &_line_border{
+        grid-row: 4/5;
+        background-color: #c6c6c6;
+        height: 100%;
+        width: 250px;
+        margin: 0 auto;
+    }
+    &_living_area_square{
+        grid-row: 5/6;
+        padding: 10px 10px 0px 10px;
+        display: flex;
+        &_text{
+            padding-top: 3px;
+            padding-left: 5px;
+            font-size: 12px;
+        }
+        &_icon{
+            background: url("../../static/icons/area-floor-size-icon.svg") 0 no-repeat;
+            width: 20px;
+            height: 20px;
+        }
+    }
+    &_price{
+        grid-row: 6/7;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        &_text{
+            
+        }
+        &_value{
+
+        }
+    }
+  }

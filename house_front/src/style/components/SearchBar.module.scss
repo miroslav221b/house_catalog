@@ -1,0 +1,23 @@
+.form{
+    width: 260px;
+    height: 30px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    font-family: sans-serif;
+}
+.input{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #c9c9c9;
+    padding-left: 10px;
+}
+.icon{
+    background: url('https://www.engelvoelkers.com/webinnovation-frontend-resources/images/Icon_Search.svg') 0 no-repeat;
+    width: 19px;
+    height: 19px;
+    position: relative;
+    right: 25px;
+    top: 7px;
+    cursor: pointer;
+}
