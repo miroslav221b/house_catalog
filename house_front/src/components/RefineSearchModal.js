@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MultiRangeSlider from "../UI/MultiRangeSlider/MultiRangeSlider";
 import { setActivePage, setFilters } from "../store/slices/shopSlice";
+import style from '../style/components/RefineSearch.module.scss'
 const RefineSearchModal = ({ helperInfo,setActive}) => {
     const dispatch = useDispatch()
     const filters = useSelector((state)=>{
@@ -38,10 +39,10 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
     let LivingArea = [helperInfo.lowLiving_area_square,helperInfo.topLiving_area_square]
     let price = [helperInfo.lowPrice,helperInfo.topPrice]
     return(
-                <form onSubmit={onSubmit}>
+                <form onSubmit={onSubmit} className={style.container}>
                     
                     <div>
-                        <p>living area</p>
+                        <p className={style.title}>Living area</p>
                         <MultiRangeSlider
                             min={helperInfo.lowLiving_area_square}
                             max={helperInfo.topLiving_area_square}
@@ -51,7 +52,7 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
                             }}/>
                     </div>
                     <div>
-                        <p>{`price(CZK)`}</p>
+                        <p className={style.title}>{`Price (CZK)`}</p>
                         <MultiRangeSlider
                             min={helperInfo.lowPrice}
                             max={helperInfo.topPrice}
@@ -60,15 +61,17 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
                                 price[1]= max
                             }}/>
                     </div>
-                    <input
-                        type={"button"}
-                        value={"delete advansed filters"}
-                        onClick={onDelete}
+                    <div className={style.buttons}>
+                        <input className={style.button}
+                            type={"button"}
+                            value={"Clear"}
+                            onClick={onDelete}
+                            />
+                        <input className={style.button}
+                            type={"submit"}
+                            value={"Search"}
                         />
-                    <input 
-                        type={"submit"}
-                        value={"find"}
-                    />
+                    </div>
                 </form>
        
     )

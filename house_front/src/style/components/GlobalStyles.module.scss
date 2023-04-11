@@ -1,0 +1,8 @@
+@mixin font{
+    font-family: Helvetica,Verdana,Arial,sans-serif;
+    color: #444;
+    font-weight: 100;
+}
+@mixin border{
+    border: #c6c6c6;
+}

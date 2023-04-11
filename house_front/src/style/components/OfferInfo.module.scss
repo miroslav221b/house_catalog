@@ -1,3 +1,5 @@
+@import url('./GlobalStyles.module.scss');
+
 @mixin font{
     font-family: Helvetica,Verdana,Arial,sans-serif;
     color: #444;
@@ -42,37 +44,24 @@
     margin: 0 auto;
     text-align: center;
 }
-.living_area_square{
+.attribute{
     @include font;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    &_icon{
-       background: url('https://www.engelvoelkers.com/webinnovation-frontend-resources/images/Icon_LivingSpace.svg') 0 no-repeat; 
-       width: 40px;
-       height: 40px;
-       margin: 0 auto;
-    }
-    &_text{
-        font-size: 24px;
-        font-weight: 100;
-    }
 }
-.price{
+.icon{ 
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+ }
+.value{
     @include font;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    &_icon{
-        background: url('https://www.engelvoelkers.com/webinnovation-frontend-resources/images/Icon_Price.svg') 0 no-repeat;
-        width: 40px;
-        height: 40px;
-        margin: 0 auto;
-    }
-    &_text{
-        font-size: 24px;
-        font-weight: 100;
-    }
+    font-size: 24px;
+    font-weight: 100;
 }
 .code{
     @include font;
