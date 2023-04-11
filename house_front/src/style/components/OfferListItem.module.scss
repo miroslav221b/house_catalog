@@ -1,4 +1,7 @@
 .list_item{
+    position:relative;
+    transform: scale(1);
+    transition: 500ms;
     font-family: Helvetica,Verdana,Arial,sans-serif;
     font-weight: 100;
     color: #444;
@@ -7,6 +10,10 @@
     height: 360px;
     width: 310px;
     border: 1px solid #c6c6c6;
+    &:hover{
+        transform: scale(1.01);
+        box-shadow: -5px 16px 25px -17px rgba(0,0,0,0.83);
+    }
     &_image{
         grid-row: 1/2;
         width: 100%;
