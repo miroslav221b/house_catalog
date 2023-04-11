@@ -67,7 +67,7 @@ const OfferInfo = (props) => {
            </div>
            <div className={style.line_border}></div>
            <div className={style.images}>
-                <Map center={{lat: -3.745,lng: -38.523}} />
+                <Map center={{latitude:50.45000100,longitude:30.52333300}} />
             </div>
         </div>
             </div>
