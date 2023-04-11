@@ -1,6 +1,11 @@
-.RefineSearch{
+@mixin font{
     font-family: Helvetica,Verdana,Arial,sans-serif;
-    font-weight: 400;
+    color: #444;
+    font-weight: 100;
+}
+
+.RefineSearch{
+    @include font;
     display: flex;
     gap: 20px;
     align-items: center; 
@@ -17,5 +22,35 @@
     }
     .label{
         color:#575757;
+    }
+}
+.title{
+    @include font;
+    padding-bottom: 8px;
+    font-size: 16px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .button{
+        background-color: white;
+        width: fit-content;
+        padding: 6px 12px;
+        font-size: 14px;
+        border: 1px solid #c6c6c6;
+        @include font;
+        border-radius: 5px;
+        transition-duration: 0.5s;
+        &:hover{
+            transition-property: border;
+            transition-duration: 0.5s;
+            border: 1px solid red;
+        }
     }
 }

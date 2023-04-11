@@ -5,7 +5,18 @@ import Loader from "../UI/loader/Loader";
 import Map from "./MapComponent";
 const OfferInfo = (props) => {
 
+    let arrayValues = []
     const offerInfo = props.offerInfo
+    console.log(offerInfo)
+    arrayValues.push({
+        icon: 'https://www.engelvoelkers.com/webinnovation-frontend-resources/images/Icon_LivingSpace.svg',
+        value: `${offerInfo.living_area_square} m²`,
+    },
+    {
+        icon: 'https://www.engelvoelkers.com/webinnovation-frontend-resources/images/Icon_Price.svg',
+        value: `${offerInfo.price} ${offerInfo.currency}`
+    }
+    )
     return(
            <div className={style.container}>
                     <div className={style.images}>
@@ -17,17 +28,16 @@ const OfferInfo = (props) => {
                     </div>
                     <div className={style.container_info}>
             <div className={style.info}>
-                <div className={style.living_area_square}>
-                    <div className={style.living_area_square_icon}></div>
-                    <div className={style.living_area_square_text}>
-                        {offerInfo.living_area_square} m²
-                    </div>
-                </div>
-                <div className={style.price}>
-                    <div className={style.price_icon}></div>
-                    <div className={style.price_text}>
-                        {offerInfo.price} {offerInfo.currency}
-                    </div>
+                {arrayValues.map((item)=>{
+                    return(
+                        <div className={style.attribute}>
+                            <img src={item.icon} className={style.icon}></img>
+                            <div className={style.value}>
+                                {item.value}
+                            </div>
+                        </div>
+                    )
+                })}
                 </div>
             </div>
             <div className={style.code}>
@@ -35,24 +45,10 @@ const OfferInfo = (props) => {
             </div>
             <div className={style.line_border}></div>
             <div className={style.email}>
-                <div className={style.email_text}>REQUEST AN EXPOSÉ NOW</div>
+                <div className={style.description_h}>REQUEST AN EXPOSÉ NOW</div>
                 <div className={style.email_button}>
                     More Info
                     <a className={style.link} href={offerInfo.link}></a>
-                </div>
-            </div>
-            <div className={style.shoud_to_know}>
-                <div className={style.shoud_to_know_h}>
-                    WHAT YOU SHOULD KNOW ABOUT THIS APARTMENT
-                </div>
-                <div className={style.shoud_to_know_text}>
-                    {offerInfo.description[" shoud_to_know "].map((item) => {
-                        return(
-                            <div className={style.shoud_to_know_text_options}>
-                                {item} •
-                            </div>
-                            )
-                        })}
                 </div>
             </div>
             <div className={style.line_border}></div>
@@ -66,10 +62,9 @@ const OfferInfo = (props) => {
 
            </div>
            <div className={style.line_border}></div>
-           <div className={style.images}>
-                <Map center={{latitude:50.45000100,longitude:30.52333300}} />
-            </div>
-        </div>
+                <div className={style.images}>
+                    <Map center={{latitude:50.45000100,longitude:30.52333300}} />
+                </div>
             </div>
     )
 }

@@ -1,9 +1,17 @@
+@mixin defaultFont{
+  font-family: Helvetica,Verdana,Arial,sans-serif;
+  color: #444;
+  font-weight: 100;
+}
+
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 30px;
     width: fit-content;
+    @include defaultFont;
+
   }
   
   .slider {
@@ -26,28 +34,29 @@
   
   .slider__track {
     background-color: #ced4da;
+    height: 2px;
     width: 100%;
     z-index: 1;
   }
   
   .slider__range {
+    height: 2px;
     background-color: red;
     z-index: 2;
   }
   
   .slider__left-value,
   .slider__right-value {
-    color: #dee2e6;
     font-size: 12px;
     margin-top: 20px;
   }
   
   .slider__left-value {
-    left: 6px;
+    left: 0px;
   }
   
   .slider__right-value {
-    right: -4px;
+    right: 0px;
   }
   
   /* Removing the default appearance */
@@ -85,6 +94,13 @@
     margin-top: 4px;
     pointer-events: all;
     position: relative;
+    transition-duration: 0.5s;
+    &:hover{
+      transition-property: transform;
+      outline: 0.5px solid red;
+      transition-duration: 0.5s;
+      transform: scale(1.2);
+    }
   }
   
   /* For Firefox browsers */
@@ -99,5 +115,12 @@
     margin-top: 4px;
     pointer-events: all;
     position: relative;
+    transition-duration: 0.5s;
+    &:hover{
+      transition-property: transform;
+      outline: 0.5px solid red;
+      transition-duration: 0.5s;
+      transform: scale(1.2);
+    }
   }
   
