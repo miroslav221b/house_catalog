@@ -7,7 +7,6 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
     const filters = useSelector((state)=>{
         return state.shop.filters
     })
-    console.log(helperInfo)
     function onSubmit(event){
         event.preventDefault();
         let newFilter = {...filters,"page":1}

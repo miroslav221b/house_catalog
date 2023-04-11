@@ -37,7 +37,6 @@ const Filter = ({filterSeting,optionList,secFilterSeting,name}) => {
         let newFilters = {...filters,page:1}
         item.value ? newFilters[filterSeting]=item.value  : delete newFilters[filterSeting]
         item.secValue ? newFilters[secFilterSeting]=item.secValue : delete newFilters[secFilterSeting]
-        console.log(newFilters)
         
         dispatch(setFilters(newFilters))
     }

@@ -3,7 +3,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import {BASE_URL} from "../../utils/consts"
 import axios from "axios";
 export const getOffersThunk = createAsyncThunk("shop/getOffers",async(filters,thunkApi)=>{
-    console.log(filters)
     try{
         const res = await axios({
             method:"put",
