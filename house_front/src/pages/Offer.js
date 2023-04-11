@@ -5,7 +5,6 @@ import { getOfferThunk } from "../store/slices/shopSlice";
 import Loader from "../UI/loader/Loader";
 import OfferInfo from "../components/OfferInfo";
 const Offer = () => {
-
     const location = useLocation()
     const offerId = location.pathname.split("/")[2]
 
@@ -20,7 +19,7 @@ const Offer = () => {
     })
     return(
         <Loader isLoading={shop.isOfferLoading}>
-           <OfferInfo offerInfo={shop.activeOffer}/>
+           <OfferInfo offerInfo={shop.activeOffer} />
         </Loader>
     )
 }

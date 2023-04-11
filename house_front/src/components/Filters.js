@@ -15,7 +15,7 @@ const Filters = () => {
                     <SearchBar/>
                     
                     <Filter 
-                        name={"Type"}
+                        name={"Property Type"}
                         filterSeting={"type"}
                         optionList={[
                             {name:"All", value:""},
@@ -23,7 +23,7 @@ const Filters = () => {
                             {name:"Apartment", value:"Apartment"}]}/>
 
                     <Filter 
-                        name={"Property Type"}
+                        name={"Type"}
                         filterSeting={"buy_or_rent"}
                         optionList={[
                             {name:"All", value:""},

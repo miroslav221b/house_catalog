@@ -122,12 +122,12 @@ app.get("/helperInfo", async(req,res)=>{
         const lowLiving_area_square = await testModel.find().sort({"living_area_square": 1}).limit(1)
 
         const helperInfo = {
-            topPrice:topPrice[0].price,
+            topPrice:topPrice[0].price, 
             lowPrice:lowPrice[0].price,
             topLiving_area_square:topLiving_area_square[0].living_area_square,
             lowLiving_area_square:lowLiving_area_square[0].living_area_square
         } 
-        res.status(200).json(helperInfo)
+        res.status(200).json(helperInfo)  
     }catch(err){
         console.log(err)
         res.status(500).json("some error")

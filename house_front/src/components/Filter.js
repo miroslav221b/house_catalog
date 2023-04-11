@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import style from "../style/components/Filter.module.scss"
 import { useDispatch, useSelector } from "react-redux";
 import { setActivePage, setFilters } from "../store/slices/shopSlice";
 const Filter = ({filterSeting,optionList,secFilterSeting,name}) => {
-    const [selected, setSelected] = useState({name})
-    const [isActive, setIsActive] = useState(false)
 
+    const [isActive, setIsActive] = useState(false)
+    const [selected, setSelected] = useState({name})
+    
+    const dispatch = useDispatch()
+    let menuRef = useRef()
     const filters = useSelector((state)=>{
         return state.shop.filters
     })
-    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        let handler = (e)=>{
+            if(!menuRef.current.contains(e.target)){
+                setIsActive(false)
+            }
+        }
+
+
+        document.addEventListener("mousedown",handler)
+        return()=>{
+            document.removeEventListener("mousedown",handler)
+        }
+    })
+
+
     function onItemClick(item){
 
         setSelected(item)
@@ -23,8 +41,9 @@ const Filter = ({filterSeting,optionList,secFilterSeting,name}) => {
         
         dispatch(setFilters(newFilters))
     }
+
     return(
-        <div className={style.filter}>
+        <div className={style.filter} ref={menuRef}>
             <div className={isActive ? `${style.filter_btn_active } ${style.filter_btn}`: style.filter_btn} onClick={()=>{setIsActive(!isActive)}}>
                 {selected.name}
             </div>

@@ -16,11 +16,11 @@ const Slider = ({images}) => {
             spaceBetween={0}
             slidesPerView={1}
             navigation
-            speed={1000}
+            speed={650}
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
+            onSwiper={(swiper) => {}}
+            onSlideChange={() => {}}
       >
         {
             images.map((item)=>{
