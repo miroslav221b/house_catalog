@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "../style/components/OfferListItem.module.scss"
 import { ROUTES } from "../utils/consts";
+import pricePritier from "../utils/pricePritierFunction";
 const OfferListItem = (props) => {
     return(
         <Link to={`${ROUTES.OFFER}/${props.offer._id}`}>
@@ -31,7 +32,7 @@ const OfferListItem = (props) => {
 
                     <div className={style.list_item_price}>
                         <div className={style.list_item_price_text}>Price</div>
-                        <div className={style.list_item_price_value}>{props.offer.price!== 1 ?`${props.offer.price}CZK`: "On request" }</div>
+                        <div className={style.list_item_price_value}>{props.offer.price!== 1 ?`${pricePritier( props.offer.price)}CZK`: "On request" }</div>
                     </div>
                     
             </div>

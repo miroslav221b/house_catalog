@@ -7,6 +7,8 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
   const [maxVal, setMaxVal] = useState(max);
   const minValRef = useRef(min);
   const maxValRef = useRef(max);
+  const [minInp, setMinInp] = useState(min)
+  const [maxInp, setMaxInp] = useState(max)
   const range = useRef(null);
 
   const getPercent = useCallback(
@@ -23,7 +25,7 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
       range.current.style.left = `${minPercent}%`;
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [minVal, getPercent]);
+  }, [minVal, getPercent ]);
 
   // Set width of the range to decrease from the right side
   useEffect(() => {
@@ -48,8 +50,9 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
         max={max}
         value={minVal}
         onChange={(event) => {
-          const value = Math.min(Number(event.target.value), maxVal - 1);
+          const value = Math.min(Number(event.target.value), maxVal);
           setMinVal(value);
+          setMinInp(value)
           minValRef.current = value;
         }}
         className="thumb thumb--left"
@@ -61,8 +64,9 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
         max={max}
         value={maxVal}
         onChange={(event) => {
-          const value = Math.max(Number(event.target.value), minVal + 1);
+          const value = Math.max(Number(event.target.value), minVal);
           setMaxVal(value);
+          setMaxInp(value)
           maxValRef.current = value;
         }}
         className="thumb thumb--right"
@@ -73,26 +77,28 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
         <div ref={range} className="slider__range" />
           <input 
             type={'tel'}
-            value={minVal}
+            value={minInp}
             className={"slider__left-value"}
             onChange={(e)=>{
-              if(e.target.value>min){
-                setMinVal(e.target.value)
-              }else{
-                setMinVal(min)
+              let inp = Number(e.target.value)
+              if(inp >= min &&inp<maxVal && typeof(inp) == "number"){
+                setMinVal(inp)
+                minValRef.current = inp
               }
+              setMinInp(inp)
             }}
             />
           <input 
             type={'tel'}
-            value={maxVal}
+            value={maxInp}
             className={"slider__right-value"}
             onChange={(e)=>{
-              if(e.target.value<max){
-                setMaxVal(e.target.value)
-              }else{
-                setMaxVal(max)
+              let inp = Number(e.target.value)
+              if(inp <= max  && inp>minVal && typeof(inp) == "number"){
+                setMaxVal(inp)
+                maxValRef.current = inp;
               }
+              setMaxInp(inp)
             }}
             />
       </div>

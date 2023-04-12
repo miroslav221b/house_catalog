@@ -10,7 +10,7 @@ export const getOffersThunk = createAsyncThunk("shop/getOffers",async(filters,th
             headers:{},
             data:filters
         })
-
+        console.log(filters)
         return res.data
     }catch(err){
         console.log(err)

@@ -51,16 +51,16 @@ const Filters = () => {
                             {name:"≥ 200.000.000 CZK", secValue:200000000},]}/>
                     <Filter 
                         name={"Living Area"}
-                        filterSeting={"fromLivingArea"}
-                        secFilterSeting={"toLivingArea"}
+                        filterSeting={"topLiving_area_square"}
+                        secFilterSeting={"lowLiving_area_square"}
                         optionList={[
                             {name:"All", value:""},
-                            {name:"≤ 51 m2", secValue:51},
-                            {name:"51 - 100 m2", value:51, secValue:100},
-                            {name:"101 - 150 m2", value:101, secValue:150},
-                            {name:"151 - 200 m2", value:151, secValue:200},
-                            {name:"201 - 250 m2", value:201, secValue:250},
-                            {name:"≥ 300 m2", value:300}
+                            {name:"≤ 51 m2", value:51},
+                            {name:"51 - 100 m2", secValue:51, value:100},
+                            {name:"101 - 150 m2", secValue:101, value:150},
+                            {name:"151 - 200 m2", secValue:151, value:200},
+                            {name:"201 - 250 m2", secValue:201, value:250},
+                            {name:"≥ 300 m2", secValue:300}
                             ]}/>
                     <ClearFiltersButton/>
                     <RefineSearch/>
