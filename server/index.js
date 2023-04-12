@@ -107,7 +107,7 @@ app.put("/", async(req,res)=>{
 })
 app.get("/getOfferById/:id", async(req,res)=>{
     try{
-        const offer = await testModel.findById(req.params.id)
+        const offer = await testModel.findOne({_id:req.params.id})
         res.status(200).json(offer)
     }catch(err){
         console.log(err)
@@ -133,4 +133,4 @@ app.get("/helperInfo", async(req,res)=>{
         res.status(500).json("some error")
     }
 })
-app.listen(process.env.PORT,()=>{console.log("server is ok")})     
+app.listen(process.env.PORT,()=>{console.log("server is ok")})   

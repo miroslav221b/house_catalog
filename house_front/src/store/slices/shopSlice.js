@@ -78,6 +78,7 @@ const shopSlice = createSlice({
 
             }
         })
+
         builder.addCase(getOfferThunk.pending,(state,action)=>{
             state.isOfferLoading = true
         })
@@ -85,6 +86,7 @@ const shopSlice = createSlice({
             state.activeOffer = action.payload
             state.isOfferLoading = false
         })
+
         builder.addCase(getHelperInfoThunk.pending,(state,action)=>{
             state.isHelperInfoLoading = true
         })
@@ -95,5 +97,4 @@ const shopSlice = createSlice({
     }
 })
 export const { setFilters , setActivePage } = shopSlice.actions
-
 export default shopSlice.reducer

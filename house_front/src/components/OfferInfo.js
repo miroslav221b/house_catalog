@@ -47,8 +47,9 @@ const OfferInfo = (props) => {
             <div className={style.email}>
                 <div className={style.description_h}>REQUEST AN EXPOSÉ NOW</div>
                 <div className={style.email_button}>
-                    More Info
-                    <a className={style.link} href={offerInfo.link}></a>
+                    <a className={style.link} href={offerInfo.link}>
+                        More Info
+                    </a>
                 </div>
             </div>
             <div className={style.line_border}></div>

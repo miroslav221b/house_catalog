@@ -4,10 +4,13 @@ import MultiRangeSlider from "../UI/MultiRangeSlider/MultiRangeSlider";
 import { setActivePage, setFilters } from "../store/slices/shopSlice";
 import style from '../style/components/RefineSearch.module.scss'
 const RefineSearchModal = ({ helperInfo,setActive}) => {
+
     const dispatch = useDispatch()
+
     const filters = useSelector((state)=>{
         return state.shop.filters
     })
+
     function onSubmit(event){
         event.preventDefault();
         let newFilter = {...filters,"page":1}
@@ -23,6 +26,7 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
         setActive(false)
         dispatch(setFilters(newFilter))
     }
+
     function onDelete(){
         let newFilter = {...filters,"page":1}
 
@@ -35,6 +39,7 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
         dispatch(setActivePage(1))
         dispatch(setFilters(newFilter))
     }
+    
     let LivingArea = [helperInfo.lowLiving_area_square,helperInfo.topLiving_area_square]
     let price = [helperInfo.lowPrice,helperInfo.topPrice]
     return(
