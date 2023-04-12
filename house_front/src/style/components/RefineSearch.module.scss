@@ -45,7 +45,7 @@
         font-size: 14px;
         border: 1px solid #c6c6c6;
         @include font;
-        border-radius: 5px;
+        // border-radius: 5px;
         transition-duration: 0.5s;
         &:hover{
             transition-property: border;
