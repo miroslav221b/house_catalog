@@ -71,8 +71,30 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
       <div className="slider">
         <div className="slider__track" />
         <div ref={range} className="slider__range" />
-        <div className="slider__left-value">{minVal != 1 ? minVal: "on request"}</div>
-        <div className="slider__right-value">{maxVal}</div>
+          <input 
+            type={'tel'}
+            value={minVal}
+            className={"slider__left-value"}
+            onChange={(e)=>{
+              if(e.target.value>min){
+                setMinVal(e.target.value)
+              }else{
+                setMinVal(min)
+              }
+            }}
+            />
+          <input 
+            type={'tel'}
+            value={maxVal}
+            className={"slider__right-value"}
+            onChange={(e)=>{
+              if(e.target.value<max){
+                setMaxVal(e.target.value)
+              }else{
+                setMaxVal(max)
+              }
+            }}
+            />
       </div>
     </div>
   );

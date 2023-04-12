@@ -1,3 +1,4 @@
+$RangeSize:500px;
 @mixin defaultFont{
   font-family: Helvetica,Verdana,Arial,sans-serif;
   color: #444;
@@ -9,14 +10,14 @@
     align-items: center;
     justify-content: center;
     height: 30px;
-    width: fit-content;
+    width: $RangeSize;
     @include defaultFont;
 
   }
   
   .slider {
     position: relative;
-    width: 200px;
+    width: $RangeSize;
   }
   
   .slider__track,
@@ -49,6 +50,9 @@
   .slider__right-value {
     font-size: 12px;
     margin-top: 20px;
+    @include defaultFont;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    padding:0px 5px;
   }
   
   .slider__left-value {
@@ -70,7 +74,7 @@
     pointer-events: none;
     position: absolute;
     height: 0;
-    width: 200px;
+    width: $RangeSize;
     outline: none;
   }
   
