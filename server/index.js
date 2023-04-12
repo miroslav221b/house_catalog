@@ -6,7 +6,7 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 const mongoose = require("mongoose");
-const testModel = require("./models/testModel");
+const offerModel = require("./models/offerModel");
 mongoose
 .connect(process.env.MONGO_URL)
 .then(()=>{console.log("db is ok")})
@@ -18,10 +18,10 @@ app.use(cors())
 app.put("/", async(req,res)=>{
     try{
         let { 
-                page, 
+                page,  
                 limit, 
                 type,
-                buy_or_rent,
+                order_type,
                 topPrice, 
                 lowPrice, 
                 topLiving_area_square,
@@ -43,9 +43,9 @@ app.put("/", async(req,res)=>{
             paramsObj.type = type
         }
 
-        if(buy_or_rent){
-            paramsObj.buy_or_rent = buy_or_rent
-        }
+        if(order_type){
+            paramsObj.order_type = order_type
+        } 
 
         if(lowPrice && topPrice){
             paramsObj.price = { $gt:lowPrice, $lt:topPrice }
@@ -54,7 +54,7 @@ app.put("/", async(req,res)=>{
         }else if(topPrice){
             paramsObj.price = { $lt:topPrice }
         }
-
+ 
         if(lowLiving_area_square && topLiving_area_square){
             paramsObj.living_area_square = { $gt:lowLiving_area_square, $lt:topLiving_area_square }
         }else if(lowLiving_area_square){
@@ -80,11 +80,11 @@ app.put("/", async(req,res)=>{
             sortObj.living_area_square = -1
         }
 
-        const offers = await testModel.find(paramsObj).sort(sortObj).limit(limit).skip(offset)
+        const offers = await offerModel.find(paramsObj).sort(sortObj).limit(limit).skip(offset)
 
         let response = {};
         if(page === 1){
-            const allOffers = await testModel.find(paramsObj).count()
+            const allOffers = await offerModel.find(paramsObj).count()
             pageCount = Math.floor(allOffers/limit)
 
             response = {
@@ -107,7 +107,7 @@ app.put("/", async(req,res)=>{
 })
 app.get("/getOfferById/:id", async(req,res)=>{
     try{
-        const offer = await testModel.findOne({_id:req.params.id})
+        const offer = await offerModel.findOne({_id:req.params.id})
         res.status(200).json(offer)
     }catch(err){
         console.log(err)
@@ -116,14 +116,14 @@ app.get("/getOfferById/:id", async(req,res)=>{
 })
 app.get("/helperInfo", async(req,res)=>{
     try{
-        const topPrice = await testModel.find().sort({"price": -1}).limit(1)
-        const lowPrice = await testModel.find().sort({"price": 1}).limit(1)
-        const topLiving_area_square = await testModel.find().sort({"living_area_square": -1}).limit(1)
-        const lowLiving_area_square = await testModel.find().sort({"living_area_square": 1}).limit(1)
-
-        const helperInfo = {
-            topPrice:topPrice[0].price, 
-            lowPrice:lowPrice[0].price,
+        const topPrice = await offerModel.find().sort({"price": -1}).limit(1)
+        const lowPrice = await offerModel.find().sort({"price": 1}).limit(1)
+        const topLiving_area_square = await offerModel.find().sort({"living_area_square": -1}).limit(1)
+        const lowLiving_area_square = await offerModel.find().sort({"living_area_square": 1}).limit(1)
+        
+        const helperInfo = { 
+            topPrice:topPrice[0].price,  
+            lowPrice:lowPrice[0].price, 
             topLiving_area_square:topLiving_area_square[0].living_area_square,
             lowLiving_area_square:lowLiving_area_square[0].living_area_square
         } 

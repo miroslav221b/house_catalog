@@ -6,16 +6,14 @@ import style from "../style/components/SearchBar.module.scss"
 const  SearchBar = () => {
 
     const dispatch = useDispatch()
-
-    const searchRef = useRef()
     const [searchInput, setSearchInput] = useState("")
-
+    const searchRef = useRef()
     const filters = useSelector((state)=>{
         return state.shop.filters
     })
     useEffect(()=>{
         let handler = (e)=>{
-            if(!searchRef.current.contains(e.target) && filters.search != searchInput){
+            if(!searchRef.current.contains(e.target) && filters.search && filters.search != searchInput){
                 dispatch(setActivePage(1))
                 dispatch(setFilters({...filters, "search":searchInput, "page":1}))
             }
@@ -27,7 +25,11 @@ const  SearchBar = () => {
             document.removeEventListener("mousedown",handler)
         }
     })
-
+    useEffect(()=>{
+        if(!filters.hasOwnProperty("search")){
+            setSearchInput("")
+        }
+    },[filters])
     function onFind (event){
         event.preventDefault();
         dispatch(setActivePage(1))

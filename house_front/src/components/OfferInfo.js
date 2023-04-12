@@ -1,8 +1,7 @@
 import React from "react";
 import Slider from "../UI/slider/slider";
 import style from '../style/components/OfferInfo.module.scss'
-import Loader from "../UI/loader/Loader";
-import Map from "./MapComponent";
+import MapComponent from "./MapComponent";
 const OfferInfo = (props) => {
 
     let arrayValues = []
@@ -10,11 +9,11 @@ const OfferInfo = (props) => {
     console.log(offerInfo)
     arrayValues.push({
         icon: 'https://www.engelvoelkers.com/webinnovation-frontend-resources/images/Icon_LivingSpace.svg',
-        value: `${offerInfo.living_area_square} m²`,
+        value:offerInfo.living_area_square !== 1 ? `${offerInfo.living_area_square} m²` : `On request`,
     },
     {
         icon: 'https://www.engelvoelkers.com/webinnovation-frontend-resources/images/Icon_Price.svg',
-        value: `${offerInfo.price} ${offerInfo.currency}`
+        value:offerInfo.price !== 1 ? `${offerInfo.price} CZK` : `On request`
     }
     )
     return(
@@ -40,9 +39,6 @@ const OfferInfo = (props) => {
                 })}
                 </div>
             </div>
-            <div className={style.code}>
-                    {offerInfo.description[" shoud_to_know "][0]}
-            </div>
             <div className={style.line_border}></div>
             <div className={style.email}>
                 <div className={style.description_h}>REQUEST AN EXPOSÉ NOW</div>
@@ -58,13 +54,22 @@ const OfferInfo = (props) => {
                     EQUIPMENT AND SPECIAL FEATURES OF THIS APARTMENT
                 </div>
                 <div className={style.description_text}>
-                    {offerInfo.description["advanced info"]}
+                    {offerInfo.description.description_main}
                 </div>
 
            </div>
+           {offerInfo.description.additional_information?<><div className={style.line_border}></div>
+            <div className={style.description}>
+                <div className={style.description_h}>
+                    FACTS
+                </div>
+                <div className={style.description_text}>
+                    {offerInfo.description.additional_information}
+                </div>
+           </div></>:<></>}
            <div className={style.line_border}></div>
                 <div className={style.images}>
-                    <Map center={{latitude:50.45000100,longitude:30.52333300}} />
+                    <MapComponent center={{latitude:offerInfo.coordinates.latitude,longitude:offerInfo.coordinates.longitude}} />
                 </div>
             </div>
     )

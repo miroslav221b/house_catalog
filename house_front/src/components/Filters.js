@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 import RefineSearch from "./RefineSearch";
 import { useSelector } from "react-redux";
 import style from "../style/components/Filters.module.scss"
+import ClearFiltersButton from "./ClearFiltersButton";
 const Filters = () => {
     const shop = useSelector((state)=>{
         return state.shop
@@ -24,7 +25,7 @@ const Filters = () => {
 
                     <Filter 
                         name={"Type"}
-                        filterSeting={"buy_or_rent"}
+                        filterSeting={"order_type"}
                         optionList={[
                             {name:"All", value:""},
                             {name:"Rent", value:"Rent"},
@@ -61,26 +62,26 @@ const Filters = () => {
                             {name:"201 - 250 m2", value:201, secValue:250},
                             {name:"≥ 300 m2", value:300}
                             ]}/>
-
+                    <ClearFiltersButton/>
                     <RefineSearch/>
                 </div> 
             </div>
             <div className={style.SearchInfo}>
-                    <h1>
-                        Your search has {shop.helperInfo.allOffers} results
-                    </h1>
-                    <div className={style.sortBlock}>
-                        <Filter 
-                                name={"Sort By"}
-                                filterSeting={"sortMethod"}
-                                optionList={[
-                                    {name:"Price descending", value:"fromTopPrice"},
-                                    {name:"Price ascending", value:"fromLowPrice"},
-                                    {name:"Total surface approx. ascending", value:"fromLowSize"},
-                                    {name:"Total surface approx. descendin", value:"fromTopSize"},
-                                    ]}/>   
-                    </div>
+                <h1>
+                    Your search has {shop.helperInfo.allOffers} results
+                </h1>
+                <div className={style.sortBlock}>
+                    <Filter 
+                        name={"Sort By"}
+                            filterSeting={"sortMethod"}
+                            optionList={[
+                                {name:"Price descending", value:"fromTopPrice"},
+                                {name:"Price ascending", value:"fromLowPrice"},
+                                {name:"Total surface approx. ascending", value:"fromLowSize"},
+                                {name:"Total surface approx. descendin", value:"fromTopSize"},
+                        ]}/>   
                 </div>
+            </div>
         </>
     )
 }

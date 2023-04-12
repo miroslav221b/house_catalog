@@ -14,7 +14,7 @@ const OfferListItem = (props) => {
                     </div> 
 
                     <div className={style.list_item_location}>
-                        {props.offer.location}
+                        {props.offer.location }
                     </div>
 
                     <div className={style.list_item_line_border}></div>
@@ -24,14 +24,14 @@ const OfferListItem = (props) => {
                         <div className={style.list_item_living_area_square_icon}></div>
 
                         <div className={style.list_item_living_area_square_text}>
-                            {props.offer.living_area_square}
+                            {props.offer.living_area_square!== 1 ? props.offer.living_area_square : "On request" }
                         </div>
 
                     </div>
 
                     <div className={style.list_item_price}>
                         <div className={style.list_item_price_text}>Price</div>
-                        <div className={style.list_item_price_value}>{props.offer.price} {props.offer.currency}</div>
+                        <div className={style.list_item_price_value}>{props.offer.price!== 1 ?`${props.offer.price}CZK`: "On request" }</div>
                     </div>
                     
             </div>

@@ -39,17 +39,17 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
         dispatch(setActivePage(1))
         dispatch(setFilters(newFilter))
     }
-    
     let LivingArea = [helperInfo.lowLiving_area_square,helperInfo.topLiving_area_square]
     let price = [helperInfo.lowPrice,helperInfo.topPrice]
+    console.log(price)
     return(
                 <form onSubmit={onSubmit} className={style.container}>
                     
                     <div>
                         <p className={style.title}>Living area</p>
                         <MultiRangeSlider
-                            min={helperInfo.lowLiving_area_square}
-                            max={helperInfo.topLiving_area_square}
+                            min={helperInfo.lowLiving_area_square-1}
+                            max={helperInfo.topLiving_area_square+1}
                             onChange={({ min, max }) => {
                                 LivingArea[0]=min
                                 LivingArea[1]=max
@@ -58,8 +58,8 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
                     <div>
                         <p className={style.title}>{`Price (CZK)`}</p>
                         <MultiRangeSlider
-                            min={helperInfo.lowPrice}
-                            max={helperInfo.topPrice}
+                            min={helperInfo.lowPrice-1}
+                            max={helperInfo.topPrice+1}
                             onChange={({ min, max }) => {
                                 price[0]= min 
                                 price[1]= max
