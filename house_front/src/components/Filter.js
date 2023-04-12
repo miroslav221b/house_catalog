@@ -47,7 +47,7 @@ const Filter = ({filterSeting,optionList,secFilterSeting,name}) => {
             </div>
             <div className={isActive ?`${style.filter_content} ${style.filter_content_active}` : style.filter_content}>
                 {optionList.map((item)=>{
-                    if(item.name !== selected.name){
+                    if(item.name !== selected.name || !filters.hasOwnProperty(filterSeting)){
                         return(
                             <div onClick={()=>{onItemClick(item)}} className={style.filter_item}>
                                 {item.name}
