@@ -26,10 +26,9 @@ const RefineSearch = () => {
         <div className={style.conteiner}>
             <div className={style.RefineSearch} onClick={()=>{
                 setActive(true)
-                console.log(active)
             }}>
                 <img src={settingIcon} className={active ? `${style.settingIcon} ${style.settingIcon_active}` : style.settingIcon}/>
-                <p className={style.label}>Refine Search</p>
+                <p className={style.label}>Price & Size</p>
             </div>
             <Modal active={active} setActive={setActive}>
                 <Loader isLoading={isHelperInfoLoading}>

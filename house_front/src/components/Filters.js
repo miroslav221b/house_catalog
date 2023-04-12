@@ -30,7 +30,7 @@ const Filters = () => {
                             {name:"All", value:""},
                             {name:"Rent", value:"Rent"},
                             {name:"Buy", value:"Buy"}]}/>
-                    <Filter 
+                    {/* <Filter 
                         name={"Price"}
                         filterSeting={"topPrice"}
                         secFilterSeting={"lowPrice"}
@@ -61,9 +61,9 @@ const Filters = () => {
                             {name:"151 - 200 m2", secValue:151, value:200},
                             {name:"201 - 250 m2", secValue:201, value:250},
                             {name:"≥ 300 m2", secValue:300}
-                            ]}/>
-                    <ClearFiltersButton/>
+                            ]}/> */}
                     <RefineSearch/>
+                    <ClearFiltersButton/>
                 </div> 
             </div>
             <div className={style.SearchInfo}>

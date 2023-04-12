@@ -24,7 +24,12 @@ const Filter = ({ filterSeting, optionList, secFilterSeting, name }) => {
             document.removeEventListener("mousedown", handler)
         }
     })
-
+    // useEffect(()=>{
+    //     console.log([filters.filterSeting,selected.value ])
+    //     if(filters.filterSeting != selected.value || filters.secFilterSeting != selected.secFilterSeting){
+    //         setSelected({name})
+    //     }
+    // },[filters])
     function onItemClick(item) {
 
         setSelected(item)
@@ -46,7 +51,7 @@ const Filter = ({ filterSeting, optionList, secFilterSeting, name }) => {
                 {optionList.map((item) => {
                     if (item.name !== selected.name || !filters.hasOwnProperty(filterSeting)|| !filters.hasOwnProperty(secFilterSeting)) {
                         return (
-                            <div onClick={() => { onItemClick(item) }} className={style.filter_item}>
+                            <div onClick={() => { onItemClick(item) }} className={style.filter_item} key={item.name}>
                                 {item.name}
                             </div>
                         )

@@ -53,7 +53,7 @@ app.put("/", async(req,res)=>{
             paramsObj.price = { $gt:lowPrice }
         }else if(topPrice){
             paramsObj.price = { $lt:topPrice }
-        }
+        } 
  
         if(lowLiving_area_square && topLiving_area_square){
             paramsObj.living_area_square = { $gt:lowLiving_area_square, $lt:topLiving_area_square }

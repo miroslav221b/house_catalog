@@ -41,7 +41,6 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
     }
     let LivingArea = [helperInfo.lowLiving_area_square,helperInfo.topLiving_area_square]
     let price = [helperInfo.lowPrice,helperInfo.topPrice]
-    console.log(price)
     return(
                 <form onSubmit={onSubmit} className={style.container}>
                     
