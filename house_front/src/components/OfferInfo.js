@@ -54,7 +54,7 @@ const OfferInfo = (props) => {
                     EQUIPMENT AND SPECIAL FEATURES OF THIS APARTMENT
                 </div>
                 <div className={style.description_text}>
-                    {offerInfo.description.description_main}
+                    {offerInfo.description.main}
                 </div>
 
            </div>

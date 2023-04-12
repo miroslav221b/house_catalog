@@ -14,7 +14,7 @@ const offerSchema = new mongoose.Schema(
         type:{type:String},
         images:[{type:String}],
         description:{   
-            description_main:[{type:String}],
+            main:[{type:String}],
             additional_information:[{type:String}]
         }
     }

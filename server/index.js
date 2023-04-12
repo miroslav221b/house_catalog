@@ -10,7 +10,7 @@ const offerModel = require("./models/offerModel");
 mongoose
 .connect(process.env.MONGO_URL)
 .then(()=>{console.log("db is ok")})
-.catch((err)=>{console.log(err)})
+.catch((err)=>{console.log(err)}) 
 
 var cors = require("cors");
 app.use(cors())
