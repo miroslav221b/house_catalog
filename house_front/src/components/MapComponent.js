@@ -25,12 +25,6 @@ const MapComponent = ({center}) => {
         <div className={style.title}>Choosed Home is here:</div>
         <Map
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_KEY}
-        // style={{
-        //   width: "75%",
-        //   height: "100%",
-        //   marginRight: "auto",
-        //   marginLeft: "auto",
-        // }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         initialViewState={{
           longitude: center.longitude,
@@ -41,6 +35,9 @@ const MapComponent = ({center}) => {
             <Layer {...layerStyle} />
           </Source>
         </Map>
+        <div className={style.hideBar}>
+
+        </div>
       </div>
   
   )
