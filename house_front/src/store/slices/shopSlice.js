@@ -72,7 +72,11 @@ const shopSlice = createSlice({
         })
         builder.addCase(getOffersThunk.fulfilled,(state,action)=>{
             state.isShopLoading = false
-            state.offerList = action.payload.offers
+            if(Number(state.filters.page) === 1){
+                state.offerList = []
+            }
+            state.offerList.push(...action.payload.offers)
+
             if(action.payload.supportingInformation){
                 state.helperInfo = action.payload.supportingInformation
 

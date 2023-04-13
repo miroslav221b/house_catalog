@@ -55,7 +55,9 @@ const OfferInfo = (props) => {
                 </div>
 
            </div>
-           {offerInfo.description.additional_information != ""?<><div className={style.line_border}></div>
+           {offerInfo.description.additional_information != ""
+           ?
+           <><div className={style.line_border}></div>
             <div className={style.description}>
                 <div className={style.description_h}>
                     FACTS
@@ -63,7 +65,9 @@ const OfferInfo = (props) => {
                 <div className={style.description_text}>
                     {offerInfo.description.additional_information}
                 </div>
-           </div></>:<></>}
+           </div></>
+           :
+           <></>}
            <div className={style.line_border}></div>
                 <div className={style.images}>
                     <MapComponent center={{latitude:offerInfo.coordinates.latitude,longitude:offerInfo.coordinates.longitude}} />

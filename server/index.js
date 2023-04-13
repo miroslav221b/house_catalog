@@ -33,7 +33,7 @@ app.put("/", async(req,res)=>{
         sortMethod = sortMethod || "default"
 
         page = page || 1
-        limit = limit || 18 
+        limit = limit || 12
 
         let offset = page * limit - limit 
  
@@ -54,16 +54,16 @@ app.put("/", async(req,res)=>{
         }else if(topPrice){
             paramsObj.price = { $lt:topPrice }
         } 
- 
+  
         if(lowLiving_area_square && topLiving_area_square){
             paramsObj.living_area_square = { $gt:lowLiving_area_square, $lt:topLiving_area_square }
         }else if(lowLiving_area_square){
             paramsObj.living_area_square = { $gt:lowLiving_area_square}
         }else if(topLiving_area_square){
             paramsObj.living_area_square = { $lt:topLiving_area_square }
-        }
-
-        if(search){
+        }  
+ 
+        if(search){ 
             paramsObj = {$or:[
                 {"location":{$regex: '.*' + search + '.*'}, ...paramsObj},
                 {"name":{$regex: '.*' + search + '.*'}, ...paramsObj}
