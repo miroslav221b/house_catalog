@@ -68,13 +68,13 @@ const shopSlice = createSlice({
 
     },extraReducers:(builder)=>{
         builder.addCase(getOffersThunk.pending,(state,action)=>{
+            if(Number(state.filters.page) === 1){
+                state.offerList = []
+            }
             state.isShopLoading = true
         })
         builder.addCase(getOffersThunk.fulfilled,(state,action)=>{
             state.isShopLoading = false
-            if(Number(state.filters.page) === 1){
-                state.offerList = []
-            }
             state.offerList.push(...action.payload.offers)
 
             if(action.payload.supportingInformation){
