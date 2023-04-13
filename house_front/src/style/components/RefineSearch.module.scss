@@ -18,14 +18,20 @@
         font-size: 12px;
         gap: 10px;
      }
+     @media screen and (max-width: 815px) {
+        margin: 15px 20px 0px 0px;
+        height: fit-content;
+        gap: 5px;
+     }
+     
 
     .settingIcon{
         transition: 200ms;
         height:25px;
         width: 25px;
         @media screen and (max-width: 815px) {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
          }
     }
     .settingIcon_active{
