@@ -11,11 +11,22 @@
     align-items: center; 
     justify-content: center;
     cursor: pointer;
+    @media screen and (max-width: 1015px) {
+        margin: 10px 20px 0px 0px;
+    }
+    @media screen and (max-width: 815px) {
+        font-size: 12px;
+        gap: 10px;
+     }
 
     .settingIcon{
         transition: 200ms;
         height:25px;
         width: 25px;
+        @media screen and (max-width: 815px) {
+            width: 20px;
+            height: 20px;
+         }
     }
     .settingIcon_active{
         transform: rotate(180deg);

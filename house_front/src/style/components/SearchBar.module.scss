@@ -5,6 +5,17 @@
     display: flex;
     justify-content: space-between;
     font-family: sans-serif;
+    @media screen and (max-width: 1015px) {
+        width: 800px;
+        margin-top: 15px;
+    }
+    @media screen and (max-width: 815px) {
+        width: 600px; 
+     }
+     @media screen and (max-width: 615px) {
+        width: 400px;
+        margin-top: 0px;
+     }
 }
 .input{
     width: 100%;

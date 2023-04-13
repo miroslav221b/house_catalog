@@ -13,6 +13,17 @@
         // border-radius: 5px;
         transition-duration: 0.5s;
         cursor: pointer;
+        @media screen and (max-width: 1015px) {
+            margin-top: 10px;
+        }
+        @media screen and (max-width: 815px) {
+            font-size: 13px;
+         }
+         @media screen and (max-width: 615px) {
+            width: 140px;
+            border: 1px solid #c6c6c6;
+            margin-top: 15px;
+         }
         &:hover{
             transition-property: border;
             transition-duration: 0.5s;

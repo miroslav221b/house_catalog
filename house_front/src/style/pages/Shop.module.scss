@@ -3,10 +3,28 @@ $frameSize: 1000px;
     .offerList{
         width: $frameSize;
         margin: 20px auto;
+        @media screen and (max-width: 1015px) {
+            width: 800px;
+        }
+        @media screen and (max-width: 815px) {
+            width: 600px; 
+         }
+         @media screen and (max-width: 615px) {
+            width: 400px;
+         }
     }
     .PageCount{
         margin: 20px auto;
         width: $frameSize;
-        padding-bottom:50px ;
+        padding-bottom:50px;
+        @media screen and (max-width: 1015px) {
+            width: 800px;
+        }
+        @media screen and (max-width: 815px) {
+            width: 600px; 
+         }
+         @media screen and (max-width: 615px) {
+            width: 400px;
+         }
     }
 }

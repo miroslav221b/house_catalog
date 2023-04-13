@@ -1,6 +1,11 @@
 
 .filterContainer{
-
+    @media screen and (max-width: 1015px) {
+        height: 100px;
+    }
+    @media screen and (max-width: 615px) {
+        height: 110px; 
+     }
     border-bottom:  1px solid #c6c6c6;
     .filters{
         width: 1000px;
@@ -10,6 +15,18 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media screen and (max-width: 1015px) {
+            width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        @media screen and (max-width: 815px) {
+            width: 600px; 
+         }
+         @media screen and (max-width: 615px) {
+            width: 400px; 
+         }
 
     }
 }
@@ -20,6 +37,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width: 1015px) {
+        width: 800px;
+    }
+    @media screen and (max-width: 815px) {
+        width: 600px; 
+     }
+     @media screen and (max-width: 615px) {
+        width: 400px; 
+     }
     .sortBlock{
         width: fit-content;
     }
