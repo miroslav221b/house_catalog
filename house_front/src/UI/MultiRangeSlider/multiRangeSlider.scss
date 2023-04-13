@@ -11,6 +11,9 @@ $RangeSize:500px;
     justify-content: center;
     height: 30px;
     width: $RangeSize;
+    @media screen  and (max-width: 615px){
+      width: 400px;
+    }
     @include defaultFont;
 
   }
@@ -18,6 +21,9 @@ $RangeSize:500px;
   .slider {
     position: relative;
     width: $RangeSize;
+    @media screen  and (max-width: 615px){
+      width: 400px;
+    }
   }
   
   .slider__track,
@@ -53,10 +59,13 @@ $RangeSize:500px;
     @include defaultFont;
     border-bottom: 1px solid rgb(190, 190, 190);
     padding:0px 5px;
+    @media screen  and (max-width: 615px){
+      font-size: 13px;
+    }
   }
-  
+  //
   .slider__left-value {
-    left: 0px;
+    left: 0;
   }
   
   .slider__right-value {
@@ -75,6 +84,9 @@ $RangeSize:500px;
     position: absolute;
     height: 0;
     width: $RangeSize;
+    @media screen  and (max-width: 615px){
+      width: 400px;
+    }
     outline: none;
   }
   
