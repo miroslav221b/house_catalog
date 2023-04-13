@@ -54,10 +54,10 @@ $RangeSize:500px;
   
   .slider__left-value,
   .slider__right-value {
-    font-size: 19px;
+    font-size: 18px;
     margin-top: 20px;
     @include defaultFont;
-    border-bottom: 1px solid rgb(190, 190, 190);
+    border-bottom: 0.5px solid rgb(190, 190, 190);
     padding:0px 5px;
     @media screen  and (max-width: 615px){
       font-size: 13px;

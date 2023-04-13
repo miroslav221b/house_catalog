@@ -41,7 +41,7 @@ const  SearchBar = () => {
             type={"text"}
             value={searchInput}
             onChange={(e)=>{setSearchInput(e.target.value)}}
-            placeholder={"enter location"}
+            placeholder={"Enter location"}
             className={style.input}
 
         />

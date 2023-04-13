@@ -53,5 +53,11 @@
         font-family: Helvetica,Verdana,Arial,sans-serif;
         font-weight: 100;
         font-size: large;
+        @media screen and (max-width: 815px){
+            padding-top: 10px;
+        }
+        @media screen and (max-width: 615px) {
+            font-size: medium; 
+         }
     }
 }

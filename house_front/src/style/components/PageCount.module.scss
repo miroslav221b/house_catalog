@@ -19,8 +19,8 @@
         text-decoration: none;
         display: flex;
         flex-direction: row;
-        border-left: 0.5px solid grey;
-        border-right: 0.5px solid grey;
+        border-left: 0.5px solid #c6c6c6;
+        border-right: 0.5px solid #c6c6c6;
         cursor: pointer;
         &_value{
             @include count;
@@ -29,22 +29,17 @@
 
     .nonActivePage{
         @include count;
-        border-left: 0.5px solid grey;
-        border-right: 0.5px solid grey;
+        border-left: 0.5px solid #c6c6c6;
+        border-right: 0.5px solid #c6c6c6;
         cursor: pointer;
     }
     .dots{
         display: flex;
         flex-direction: row;
-        border-left: 0.5px solid grey;
-        border-right: 0.5px solid grey;
+        border-left: 0.5px solid #c6c6c6;
+        border-right: 0.5px solid #c6c6c6;
         &_text{
             @include count;
         }
-    }
-    .line{
-        height: 70px;
-        width: 1px;
-        background-color: grey;
     }
 }
