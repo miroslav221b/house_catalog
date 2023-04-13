@@ -16,6 +16,16 @@
     width: 1000px;
     height: 400px;
     margin: 0px auto;
+    @media screen and (max-width: 1015px){
+        width: 800px;
+    }
+    @media screen and (max-width: 815px){
+        width: 600px;
+    }
+    @media screen and (max-width: 615px){
+        width: 400px;
+        height: 270px;
+    }
 }
 .container_info{
     margin: 0 auto;
@@ -37,6 +47,9 @@
     font-weight: 100;
     text-align: center;
     @include font;
+    @media screen and (max-width: 615px){
+        width: 400px;
+    }
 }
 .reason_with_location{
     @include font;
@@ -62,6 +75,9 @@
     gap: 20px;
     font-size: 24px;
     font-weight: 100;
+    @media screen and (max-width: 615px){
+        font-size: 20px;
+    }
 }
 .code{
     @include font;
@@ -134,6 +150,12 @@
         @include font;
         max-width: 700px;
         margin: 0 auto;
+        @media screen and (max-width: 815px){
+            margin: 0 30px;
+        }
+        @media screen and (max-width: 725px){
+            margin: 0 15px;
+        }
     }
 }
 .description{

@@ -7,6 +7,15 @@
     img{
         height: 100%;
         width: auto;
+        @media screen and (max-width: 1015px){
+            width: 900px;
+        }
+        @media screen and (max-width: 815px){
+            width: 700px;
+        }
+        @media screen and (max-width: 615px){
+            width: 500px;
+        }
     }
 }
 .swiper{

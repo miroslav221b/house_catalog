@@ -9,6 +9,12 @@
     height: 400px;
     margin: 0 auto;
     position: relative;
+    @media screen and (max-width: 815px){
+        width: 600px;
+    }
+    @media screen and (max-width: 615px){
+        width: 400px;
+    }
     .title{
         @include font;
         font-size: 20px;
