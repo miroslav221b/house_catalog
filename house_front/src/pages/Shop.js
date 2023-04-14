@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import OfferList from "../components/offerList";
-import PageCount from "../components/PageCount";
 import { getHelperInfoThunk, getOffersThunk, setActivePage, setFilters } from "../store/slices/shopSlice";
 import style from "../style/pages/Shop.module.scss"
 import Loader from "../UI/loader/Loader";

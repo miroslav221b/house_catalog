@@ -32,7 +32,7 @@ const OfferListItem = (props) => {
 
                     <div className={style.list_item_price}>
                         <div className={style.list_item_price_text}>Price</div>
-                        <div className={style.list_item_price_value}>{props.offer.price!== 1 ?`${pricePritier( props.offer.price)}CZK`: "On request" }</div>
+                        <div className={style.list_item_price_value}>{props.offer.price!== 1 ?`${pricePritier( props.offer.price)} CZK`: "On request" }</div>
                     </div>
                     
             </div>
