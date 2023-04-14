@@ -26,7 +26,7 @@ const OfferInfo = (props) => {
             <div className={style.info}>
                 {arrayValues.map((item)=>{
                     return(
-                        <div className={style.attribute}>
+                        <div className={style.attribute} key={item.icon}>
                             <img src={item.icon} className={style.icon}></img>
                             <div className={style.value}>
                                 {item.value}
@@ -36,9 +36,9 @@ const OfferInfo = (props) => {
                 })}
                 </div>
             </div>
-            <div className={style.line_border}></div>
+            {/* <div className={style.line_border}></div> */}
             <div className={style.email}>
-                <div className={style.description_h}>REQUEST AN EXPOSÉ NOW</div>
+                {/* <div className={style.description_h}>REQUEST AN EXPOSÉ NOW</div> */}
                 <div className={style.email_button}>
                     <a className={style.link} href={offerInfo.link}>
                         More Info

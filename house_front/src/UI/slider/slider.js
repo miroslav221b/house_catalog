@@ -25,7 +25,7 @@ const Slider = ({images}) => {
         {
             images.map((item)=>{
                 return(
-                    <SwiperSlide>
+                    <SwiperSlide key={item}>
                         <div className={style.slide}>
                             <img src={item}/>
                         </div>

@@ -24,12 +24,6 @@ const Filter = ({ filterSeting, optionList, secFilterSeting, name }) => {
             document.removeEventListener("mousedown", handler)
         }
     })
-    // useEffect(()=>{
-    //     console.log([filters.filterSeting,selected.value ])
-    //     if(filters.filterSeting != selected.value || filters.secFilterSeting != selected.secFilterSeting){
-    //         setSelected({name})
-    //     }
-    // },[filters])
     function onItemClick(item) {
 
         setSelected(item)

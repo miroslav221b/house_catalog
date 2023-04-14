@@ -47,8 +47,8 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
                     <div>
                         <p className={style.title}>Living area</p>
                         <MultiRangeSlider
-                            min={helperInfo.lowLiving_area_square-1}
-                            max={helperInfo.topLiving_area_square+1}
+                            min={helperInfo?helperInfo.lowLiving_area_square-1:0}
+                            max={helperInfo?helperInfo.topLiving_area_square+1:0}
                             onChange={({ min, max }) => {
                                 LivingArea[0]=min
                                 LivingArea[1]=max
@@ -57,8 +57,8 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
                     <div>
                         <p className={style.title}>{`Price (CZK)`}</p>
                         <MultiRangeSlider
-                            min={helperInfo.lowPrice-1}
-                            max={helperInfo.topPrice+1}
+                            min={helperInfo?helperInfo.lowPrice-1:0}
+                            max={helperInfo?helperInfo.topPrice+1:0}
                             onChange={({ min, max }) => {
                                 price[0]= min 
                                 price[1]= max

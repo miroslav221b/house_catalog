@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import OfferList from "../components/offerList";
-import { getHelperInfoThunk, getOffersThunk, setActivePage, setFilters } from "../store/slices/shopSlice";
+import { getOffersThunk, setActivePage, setFilters } from "../store/slices/shopSlice";
 import style from "../style/pages/Shop.module.scss"
 import Loader from "../UI/loader/Loader";
 import Filters from "../components/Filters";
@@ -24,6 +24,7 @@ const Shop = () => {
             document.removeEventListener("scroll",scrollHandler)
         }  
     })
+    
     function scrollHandler(e){
         if(e.target.documentElement.scrollHeight-(e.target.documentElement.scrollTop + window.innerHeight)<100 && !shop.isShopLoading && !shop.isHelperInfoLoading){
             if(shop.helperInfo.pageCount > shop.filters.page){

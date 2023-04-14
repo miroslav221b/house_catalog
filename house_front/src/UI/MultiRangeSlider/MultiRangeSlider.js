@@ -10,7 +10,11 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
   const [minInp, setMinInp] = useState(min)
   const [maxInp, setMaxInp] = useState(max)
   const range = useRef(null);
-
+  function isNumeric(str) {
+    if (typeof str != "string") return false // we only process strings!  
+    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+           !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+  }
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
     [min, max]
@@ -80,12 +84,14 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
             value={minInp}
             className={"slider__left-value"}
             onChange={(e)=>{
-              let inp = Number(e.target.value)
-              if(inp >= min &&inp<maxVal && typeof(inp) == "number"){
+              if(isNumeric(e.target.value)){
+                let inp = Number(e.target.value)
+                if(inp >= min && inp < maxVal){
+                    setMinVal(inp)
+                    minValRef.current = inp
+                }
                 setMinVal(inp)
-                minValRef.current = inp
               }
-              setMinInp(inp)
             }}
             />
           <input 
@@ -93,13 +99,15 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
             value={maxInp}
             className={"slider__right-value"}
             onChange={(e)=>{
+            if(isNumeric(e.target.value)){
               let inp = Number(e.target.value)
-              if(inp <= max  && inp>minVal && typeof(inp) == "number"){
-                setMaxVal(inp)
-                maxValRef.current = inp;
+              if(inp <= max  && inp > minVal){
+                  setMaxVal(inp)
+                  maxValRef.current = inp;
               }
               setMaxInp(inp)
-            }}
+            }
+             }}
             />
       </div>
     </div>
