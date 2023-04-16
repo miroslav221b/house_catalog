@@ -4,15 +4,15 @@ import style from "../style/components/Header.module.scss"
 import { Link } from "react-router-dom";
 import { ROUTES } from "../utils/consts";
 const Header = () => {
-    return(
+    return (
         <div className={style.container}>
             <div className={style.header}>
                 <Link to={ROUTES.SHOP}>
-                <img src={logo}/>
+                    <img src={logo} />
                 </Link>
-         </div>
+            </div>
         </div>
-       
+
     )
 }
 export default Header

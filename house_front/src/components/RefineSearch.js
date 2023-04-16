@@ -8,36 +8,36 @@ import { getHelperInfoThunk, setFilters } from "../store/slices/shopSlice";
 import RefineSearchModal from "./RefineSearchModal";
 import Loader from "../UI/loader/Loader";
 const RefineSearch = () => {
-    const [active , setActive] = useState(false)
+    const [active, setActive] = useState(false)
 
     const dispatch = useDispatch()
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getHelperInfoThunk())
-    },[active])
+    }, [active])
 
-    const helperInfo = useSelector((state)=>{
+    const helperInfo = useSelector((state) => {
         return state.shop.helperInfo
     })
-    const isHelperInfoLoading = useSelector((state)=>{
+    const isHelperInfoLoading = useSelector((state) => {
         return state.shop.isHelperInfoLoading
     })
-    return(
+    return (
         <div className={style.conteiner}>
-            <div className={style.RefineSearch} onClick={()=>{
+            <div className={style.RefineSearch} onClick={() => {
                 setActive(true)
             }}>
-                <img src={settingIcon} className={active ? `${style.settingIcon} ${style.settingIcon_active}` : style.settingIcon}/>
+                <img src={settingIcon} className={active ? `${style.settingIcon} ${style.settingIcon_active}` : style.settingIcon} />
                 <p className={style.label}>Price & Size</p>
             </div>
             <Modal active={active} setActive={setActive}>
                 <Loader isLoading={isHelperInfoLoading}>
-                    <RefineSearchModal setActive={setActive}  helperInfo={helperInfo}/>
+                    <RefineSearchModal setActive={setActive} helperInfo={helperInfo} />
                 </Loader>
             </Modal>
         </div>
-        
-       
+
+
     )
 }
 export default RefineSearch

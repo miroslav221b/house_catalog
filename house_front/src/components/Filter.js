@@ -39,7 +39,7 @@ const Filter = ({ filterSeting, optionList, secFilterSeting, name }) => {
     return (
         <div className={style.filter} ref={menuRef}>
             <div className={isActive ? `${style.filter_btn_active} ${style.filter_btn}` : style.filter_btn} onClick={() => { setIsActive(!isActive) }}>
-                {!filters.hasOwnProperty(filterSeting) && !filters.hasOwnProperty(secFilterSeting)  ? name : selected.name}
+                {!filters.hasOwnProperty(filterSeting) && !filters.hasOwnProperty(secFilterSeting) ? name : selected.name}
             </div>
             <div className={isActive ? `${style.filter_content} ${style.filter_content_active}` : style.filter_content}>
                 {optionList.map((item) => {

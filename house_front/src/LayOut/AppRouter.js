@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom"
-import {PublicRoutes} from "../Routes";
+import { PublicRoutes } from "../Routes";
 
-function AppRouter(){
-    return(
+function AppRouter() {
+    return (
         <Routes>
-            {PublicRoutes.map(({path , Component})=>{
-                return <Route path={path} element={Component} key={path}/>
+            {PublicRoutes.map(({ path, Component }) => {
+                return <Route path={path} element={Component} key={path} />
 
             })}
         </Routes>

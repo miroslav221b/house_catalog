@@ -3,11 +3,11 @@ import AppRouter from "./AppRouter";
 import Footer from "./Footer";
 import Header from "./Header";
 const LayOut = () => {
-    return(
+    return (
         <>
-        <Header/>
-        <AppRouter/>
-        {/* <Footer/> */}
+            <Header />
+            <AppRouter />
+            {/* <Footer/> */}
         </>
     )
 }

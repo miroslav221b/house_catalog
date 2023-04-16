@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
 import style from "../style/components/UpBtn.module.scss";
 const UpBtn = () => {
-    const [isActive,setIsActive]= useState(false)
+    const [isActive, setIsActive] = useState(false)
 
-    useEffect(()=>{
-        document.addEventListener("scroll",scrollHandler)
-        return function(){
-            document.removeEventListener("scroll",scrollHandler)
-        }  
+    useEffect(() => {
+        document.addEventListener("scroll", scrollHandler)
+        return function () {
+            document.removeEventListener("scroll", scrollHandler)
+        }
     })
-    
-    function scrollHandler(e){
-        if(e.target.documentElement.scrollTop > window.innerHeight && !isActive){
+
+    function scrollHandler(e) {
+        if (e.target.documentElement.scrollTop > window.innerHeight && !isActive) {
             setIsActive(true)
         }
-        if(e.target.documentElement.scrollTop < window.innerHeight && isActive){
+        if (e.target.documentElement.scrollTop < window.innerHeight && isActive) {
             setIsActive(false)
         }
     }
-    return(
+    return (
         <div>
-            <input 
+            <input
                 type={"button"}
                 value={"UP"}
-                onClick={()=>{
+                onClick={() => {
                     window.scrollTo({
                         top: 0,
                         behavior: "smooth"

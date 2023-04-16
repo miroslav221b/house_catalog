@@ -10,16 +10,16 @@ const Offer = () => {
 
     const dispatch = useDispatch()
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getOfferThunk(offerId))
-    },[])
+    }, [])
 
-    const shop = useSelector((state)=>{
+    const shop = useSelector((state) => {
         return state.shop
     })
-    return(
+    return (
         <Loader isLoading={shop.isOfferLoading}>
-           <OfferInfo offerInfo={shop.activeOffer} />
+            <OfferInfo offerInfo={shop.activeOffer} />
         </Loader>
     )
 }

@@ -10,38 +10,38 @@ import UpBtn from "../components/UpBtn";
 const Shop = () => {
     const dispatch = useDispatch()
 
-    const shop = useSelector((state)=>{
+    const shop = useSelector((state) => {
         return state.shop
     })
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getOffersThunk(shop.filters))
-    },[shop.filters])
+    }, [shop.filters])
 
-    useEffect(()=>{
-        document.addEventListener("scroll",scrollHandler)
-        return function(){
-            document.removeEventListener("scroll",scrollHandler)
-        }  
+    useEffect(() => {
+        document.addEventListener("scroll", scrollHandler)
+        return function () {
+            document.removeEventListener("scroll", scrollHandler)
+        }
     })
-    
-    function scrollHandler(e){
-        if(e.target.documentElement.scrollHeight-(e.target.documentElement.scrollTop + window.innerHeight)<100 && !shop.isShopLoading && !shop.isHelperInfoLoading){
-            if(shop.helperInfo.pageCount > shop.filters.page){
-                dispatch(setFilters({...shop.filters,page:shop.filters.page+1}))
+
+    function scrollHandler(e) {
+        if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && !shop.isShopLoading && !shop.isHelperInfoLoading) {
+            if (shop.helperInfo.pageCount > shop.filters.page) {
+                dispatch(setFilters({ ...shop.filters, page: shop.filters.page + 1 }))
             }
         }
     }
-    return(
+    return (
         <div className={style.container}>
-            <Filters allOffers={shop.helperInfo.allOffers}/>
+            <Filters allOffers={shop.helperInfo.allOffers} />
             <NoImgLoader isLoading={shop.offerList == true}>
                 <div className={style.offerList}>
-                    <OfferList offerList={shop.offerList}/>
+                    <OfferList offerList={shop.offerList} />
                 </div>
             </NoImgLoader>
-            <Loader isLoading={shop.isShopLoading}/>
-            <UpBtn/>
+            <Loader isLoading={shop.isShopLoading} />
+            <UpBtn />
         </div>
     )
 }

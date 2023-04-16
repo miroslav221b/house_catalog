@@ -5,11 +5,11 @@ import style from "../style/components/ClearFiltersButton.module.scss"
 const ClearFiltersButton = () => {
     const dispatch = useDispatch()
 
-    function OnClear(){
-        dispatch(setFilters({"page":1}))
+    function OnClear() {
+        dispatch(setFilters({ "page": 1 }))
     }
-    return(
-        <input 
+    return (
+        <input
             className={style.ClearFiltersButton}
             type={"button"}
             value={"clear filters"}
