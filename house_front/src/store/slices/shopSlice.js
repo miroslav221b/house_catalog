@@ -51,8 +51,6 @@ const shopSlice = createSlice({
         isOfferLoading:true,
         isHelperInfoLoading:true,
 
-        activePage:1,
-
         helperInfo:{
             pageCount:1,
             allOffers:0,
@@ -62,9 +60,6 @@ const shopSlice = createSlice({
         setFilters:(state,action)=>{
             state.filters = action.payload
         },
-        setActivePage:(state,action)=>{
-            state.activePage = action.payload
-        }
 
     },extraReducers:(builder)=>{
         builder.addCase(getOffersThunk.pending,(state,action)=>{
@@ -93,7 +88,6 @@ const shopSlice = createSlice({
             state.activeOffer = action.payload
             state.isOfferLoading = false
         })
-
         builder.addCase(getHelperInfoThunk.pending,(state,action)=>{
             state.isHelperInfoLoading = true
         })
@@ -103,5 +97,5 @@ const shopSlice = createSlice({
         })
     }
 })
-export const { setFilters , setActivePage } = shopSlice.actions
+export const { setFilters } = shopSlice.actions
 export default shopSlice.reducer

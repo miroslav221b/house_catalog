@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import style from "../style/components/Filter.module.scss"
 import { useDispatch, useSelector } from "react-redux";
-import { setActivePage, setFilters } from "../store/slices/shopSlice";
+import { setFilters } from "../store/slices/shopSlice";
 const Filter = ({ filterSeting, optionList, secFilterSeting, name }) => {
 
     const [isActive, setIsActive] = useState(false)
@@ -28,7 +28,7 @@ const Filter = ({ filterSeting, optionList, secFilterSeting, name }) => {
 
         setSelected(item)
         setIsActive(!isActive)
-        dispatch(setActivePage(1))
+        // dispatch(setActivePage(1))
 
         let newFilters = { ...filters, page: 1 }
         item.value ? newFilters[filterSeting] = item.value : delete newFilters[filterSeting]

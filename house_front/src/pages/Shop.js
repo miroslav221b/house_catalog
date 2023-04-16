@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import OfferList from "../components/offerList";
-import { getOffersThunk, setActivePage, setFilters } from "../store/slices/shopSlice";
+import { getOffersThunk, setFilters } from "../store/slices/shopSlice";
 import style from "../style/pages/Shop.module.scss"
 import Loader from "../UI/loader/Loader";
 import Filters from "../components/Filters";
@@ -28,14 +28,13 @@ const Shop = () => {
     function scrollHandler(e){
         if(e.target.documentElement.scrollHeight-(e.target.documentElement.scrollTop + window.innerHeight)<100 && !shop.isShopLoading && !shop.isHelperInfoLoading){
             if(shop.helperInfo.pageCount > shop.filters.page){
-                dispatch(setActivePage(shop.activePage+1))
-                dispatch(setFilters({...shop.filters,page:shop.activePage+1}))
+                dispatch(setFilters({...shop.filters,page:shop.filters.page+1}))
             }
         }
     }
     return(
         <div className={style.container}>
-            <Filters/>
+            <Filters allOffers={shop.helperInfo.allOffers}/>
             <NoImgLoader isLoading={shop.offerList == true}>
                 <div className={style.offerList}>
                     <OfferList offerList={shop.offerList}/>

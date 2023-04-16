@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MultiRangeSlider from "../UI/MultiRangeSlider/MultiRangeSlider";
-import { setActivePage, setFilters } from "../store/slices/shopSlice";
+import { setFilters } from "../store/slices/shopSlice";
 import style from '../style/components/RefineSearch.module.scss'
 const RefineSearchModal = ({ helperInfo,setActive}) => {
 
@@ -10,7 +10,6 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
     const filters = useSelector((state)=>{
         return state.shop.filters
     })
-
     function onSubmit(event){
         event.preventDefault();
         let newFilter = {...filters,"page":1}
@@ -22,11 +21,10 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
         newFilter.lowPrice=price[0]
 
 
-        dispatch(setActivePage(1))
+        // dispatch(setActivePage(1))
         setActive(false)
         dispatch(setFilters(newFilter))
     }
-
     function onDelete(){
         let newFilter = {...filters,"page":1}
 
@@ -36,7 +34,7 @@ const RefineSearchModal = ({ helperInfo,setActive}) => {
         delete newFilter.topPrice
         delete newFilter.lowPrice
         setActive(false)
-        dispatch(setActivePage(1))
+        // dispatch(setActivePage(1))
         dispatch(setFilters(newFilter))
     }
     let LivingArea = [helperInfo.lowLiving_area_square,helperInfo.topLiving_area_square]

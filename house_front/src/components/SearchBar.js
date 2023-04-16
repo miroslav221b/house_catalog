@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setActivePage, setFilters } from "../store/slices/shopSlice";
+import {  setFilters } from "../store/slices/shopSlice";
 import style from "../style/components/SearchBar.module.scss"
 
 const  SearchBar = () => {
@@ -14,7 +14,7 @@ const  SearchBar = () => {
     useEffect(()=>{
         let handler = (e)=>{
             if(!searchRef.current.contains(e.target) && filters.search && filters.search != searchInput){
-                dispatch(setActivePage(1))
+                // dispatch(setActivePage(1))
                 dispatch(setFilters({...filters, "search":searchInput, "page":1}))
             }
         }
@@ -32,7 +32,7 @@ const  SearchBar = () => {
     },[filters])
     function onFind (event){
         event.preventDefault();
-        dispatch(setActivePage(1))
+        // dispatch(setActivePage(1))
         dispatch(setFilters({...filters, "search":searchInput, "page":1}))
     }
 
