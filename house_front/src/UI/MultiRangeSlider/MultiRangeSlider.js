@@ -90,7 +90,7 @@ const MultiRangeSlider = ({ min, max, onChange}) => {
                     setMinVal(inp)
                     minValRef.current = inp
                 }
-                setMinVal(inp)
+                setMinInp(inp)
               }
             }}
             />
